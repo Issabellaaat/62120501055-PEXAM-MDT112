@@ -1,15 +1,21 @@
-#include <Servo.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <SPI.h>
+#include <Wire.h>
 
-#define SERVO_PIN 9
-
-Servo myservo;
+Adafruit_SSD1306 oled = Adafruit_SSD1306(128, 32, &Wire);
 void setup(){
-    Serial.begin(9600);
-    myservo.attach(8);
-    myservo.write(180);
-    myservo.write(0);
-    Serial.println("Servo : 0 degrees");
-     delay(900);
+    oled.begin(0x3C); // Address 0x3C for 128x32
+    oled.clearDisplay();
+    oled.setCursor(10, 10);
+
+  oled.setTextColor(SSD1306_WHITE);
+  oled.setTextSize(2);
+  oled.print("Hello MDT");
+  oled.display();
+
+  delay(1000);
+  oled.clearDisplay();
 }
 void loop(){
 }
