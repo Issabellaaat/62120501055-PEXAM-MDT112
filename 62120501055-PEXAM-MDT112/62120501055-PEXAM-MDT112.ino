@@ -16,6 +16,7 @@ void setup() {
 int x=0;
 void loop() {
      if (digitalRead(2) == 0) {
+         tone(8, 800, 300);
         for (x; x<=180; x=x+10) {
         myservo.write(x);  
         oled.clearDisplay();
