@@ -10,10 +10,10 @@ void setup() {
   myservo.attach(8);
   
 }
-int x=0;
+int x=180;
 void loop() {
      if (digitalRead(2) == 0) {
-        for (x; x<=180; x=x+10) {
+        for (x; x>=0; x=x-10) {
          myservo.write(x);       
         }   
             delay(200);
